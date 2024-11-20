@@ -15,7 +15,6 @@ sap.ui.define([
     return Controller.extend("cl3.syncyoung.mm.purchaseorderinquiry.purchaseorderinquiry.controller.MM_PuchaseOrder_Inquiry", {
 
         onInit: function () {
-            console.log( '건희건희 바보 ');
             var oModel = new sap.ui.model.odata.v2.ODataModel("/sap/opu/odata/sap/ZC302MMCDS0006_CDS/"); 
       
             oModel.read("/PurchaseOrderItem", { 
