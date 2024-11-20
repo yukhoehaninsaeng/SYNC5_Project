@@ -12,31 +12,25 @@
             <items>
                 <IconTabFilter
                     showAll="true"
-                    count="{/ProductCollectionStats/Counts/Total}"
+                    count="{/PuchaseOrder/Counts/stostat/Total}"
                     text="Products"
                     key="All" />
                 <IconTabSeparator />
                 <IconTabFilter
                     icon="sap-icon://begin"
                     iconColor="Positive"
-                    count="{/ProductCollectionStats/Counts/Weight/Ok}"
-                    text="Ok"
+                    count="{/PuchaseOrder/Counts/stostat/A}"
+                    text="입고완료"
                     key="Ok" />
                 <IconTabFilter
-                    icon="sap-icon://compare"
-                    iconColor="Critical"
-                    count="{/ProductCollectionStats/Counts/Weight/Heavy}"
-                    text="Heavy"
-                    key="Heavy" />
-                <IconTabFilter
                     icon="sap-icon://inventory"
-                    iconColor="Negative"
-                    count="{/ProductCollectionStats/Counts/Weight/Overweight}"
-                    text="Overweight"
-                    key="Overweight" />
+                    iconColor="Critical"
+                    count="{/PuchaseOrder/Counts/stostat/B}"
+                    text="입고예정"
+                    key="No" />
             </items>
             <content>
-                <t:Table rows ="{/PuchaseOrder}" selectionMode = "None">
+                <t:Table rows ="{/PuchaseOrder}" selectionMode = "None" id="PurchaseOrder">
                     <t:extension>
                             <OverflowToolbar style="Clear">
                                 <Title id="title" text="Purchase Order Inquiry"/>
@@ -85,7 +79,7 @@
                                 </t:template>
                             </t:Column>
 
-                            <t:Column >
+                            <!-- <t:Column >
                                 <Label text="입고예정일" />
                                 <t:template>
                                     <Text text="{                                         
@@ -99,7 +93,7 @@
                                             }
                                         }" />
                                 </t:template>
-                            </t:Column>
+                            </t:Column> -->
 
                             <t:Column >
                                 <Label text="입고완료일" />

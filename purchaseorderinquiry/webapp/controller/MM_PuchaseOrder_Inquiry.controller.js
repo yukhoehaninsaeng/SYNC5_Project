@@ -28,6 +28,28 @@ sap.ui.define([
             this.getView()
           .setModel(oModel, "orderitem"); 
         },
+        onFilterSelect: function (oEvent) {
+			var oBinding = this.byId("PurchaseOrder").getBinding("items"),
+				sKey = oEvent.getParameter("key"),
+				// Array to combine filters
+				aFilters = [],
+
+			if (sKey === "Ok") {
+				aFilters.push(
+					new Filter([
+						new Filter([new Filter("stostat", "EQ", "A")], true)
+					], false)
+				);
+			} else if (sKey === "No") {
+				aFilters.push(
+					new Filter([
+						new Filter([new Filter("stostat", "EQ", "B")], true)
+					], false)
+				);
+			} 
+			oBinding.filter(aFilters);
+		},
+
 
         onOpenDialog : function(oEvent){
             var oButton = oEvent.getSource();
