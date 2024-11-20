@@ -3,7 +3,7 @@
     xmlns:t="sap.ui.table"
 	xmlns:core="sap.ui.core">
     <Dialog id="itemDialog" title="ITEM LIST">
-									    
+									     
 		    <t:Table rows="{orderitem>/PurchaseOrderItem}" id="docList2" class="sapUiResponsiveMargin" selectionMode="None"
 				paste="onPaste" ariaLabelledBy="title">
             <t:columns >

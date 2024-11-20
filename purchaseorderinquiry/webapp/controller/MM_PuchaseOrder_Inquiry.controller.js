@@ -16,37 +16,51 @@ sap.ui.define([
 
         onInit: function () {
             var oModel = new sap.ui.model.odata.v2.ODataModel("/sap/opu/odata/sap/ZC302MMCDS0006_CDS/"); 
-      
-            oModel.read("/PurchaseOrderItem", { 
-                success: function(oData) {
-                    console.log("데이터 읽기 성공:", oData);
-                },
-                error: function(oError) {
-                    console.error("오류 발생:", oError);
-                }
-            }); 
-            this.getView()
-          .setModel(oModel, "orderitem"); 
-        },
-        onFilterSelect: function (oEvent) {
-			var oBinding = this.byId("PurchaseOrder").getBinding("items"),
-				sKey = oEvent.getParameter("key"),
-				// Array to combine filters
-				aFilters = [],
+            
+                    // PuchaseOrder 상태별 카운트 계산
+                oModel.read("/PuchaseOrder", {
+                    success: (oData) => {
+                        let aOrders = oData.results,
+                            oStatusCounts = { Total: 0, A: 0, B: 0 };
 
-			if (sKey === "Ok") {
-				aFilters.push(
-					new Filter([
-						new Filter([new Filter("stostat", "EQ", "A")], true)
-					], false)
-				);
-			} else if (sKey === "No") {
-				aFilters.push(
-					new Filter([
-						new Filter([new Filter("stostat", "EQ", "B")], true)
-					], false)
-				);
-			} 
+                        aOrders.forEach(order => {
+                            oStatusCounts.Total++;
+                            if (order.stostat_txt === "입고 완료") {
+                                oStatusCounts.A++;
+                            } else if (order.stostat_txt === "입고 예정") {
+                                oStatusCounts.B++;
+                            }
+                        });
+
+            let oView = this.getView();
+            oView.setModel(new sap.ui.model.json.JSONModel({ PuchaseOrder: oStatusCounts }), "statusCounts");
+        },
+        error: (oError) => {
+            console.error("PuchaseOrder 데이터 로드 오류:", oError);
+        }
+            }); 
+            this.getView().setModel(oModel, "orderitem"); 
+            
+        },
+
+        onFilterSelect: function (oEvent) {
+			let sKey     = oEvent.getParameter("key"),
+                oTable   = this.byId("PurchaseOrder"),
+                oBinding = oTable.getBinding("rows"),
+				// Array to combine filters
+				aFilters = [];
+
+                switch (sKey) {
+                    case "A": // "입고 완료" 필터
+                        aFilters.push(new Filter("stostat_txt", FilterOperator.EQ, "입고 완료"));
+                        break;
+                    case "B": // "입고 예정" 필터
+                        aFilters.push(new Filter("stostat_txt", FilterOperator.EQ, "입고 예정"));
+                        break;
+                    default: // 모든 데이터 표시
+                        aFilters = [];
+                }
+                
 			oBinding.filter(aFilters);
 		},
 

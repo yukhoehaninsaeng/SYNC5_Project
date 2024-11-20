@@ -12,22 +12,22 @@
             <items>
                 <IconTabFilter
                     showAll="true"
-                    count="{/PuchaseOrder/stostat}"
+                    count="{statusCounts>/PuchaseOrder/Total}"
                     text="Products"
                     key="All" />
                 <IconTabSeparator />
                 <IconTabFilter
                     icon="sap-icon://begin"
                     iconColor="Positive"
-                    count="{/PuchaseOrder/stostat/A}"
+                    count="{statusCounts>/PuchaseOrder/A}"
                     text="입고완료"
-                    key="Ok" />
+                    key="A" />
                 <IconTabFilter
                     icon="sap-icon://inventory"
                     iconColor="Critical"
-                    count="{/PuchaseOrder/stostat/B}"
+                    count="{statusCounts>/PuchaseOrder/B}"
                     text="입고예정"
-                    key="No" />
+                    key="B" />
             </items>
             <content>
                 <t:Table rows ="{/PuchaseOrder}" selectionMode = "None" id="PurchaseOrder">
