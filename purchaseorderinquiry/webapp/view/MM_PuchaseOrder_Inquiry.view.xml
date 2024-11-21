@@ -13,11 +13,11 @@
                 <IconTabFilter
                     showAll="true"
                     count="{statusCounts>/PurchaseOrder/ALL}"
-                    text="Products"
+                    text="구매리스트"
                     key="All" />
                 <IconTabSeparator />
                 <IconTabFilter
-                    icon="sap-icon://begin"
+                    icon="sap-icon://arrow-down"
                     iconColor="Positive"
                     count="{statusCounts>/PurchaseOrder/A}"
                     text="입고완료"

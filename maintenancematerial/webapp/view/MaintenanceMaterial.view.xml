@@ -1,0 +1,115 @@
+<mvc:View controllerName="cl3.syncyoung.mm.mtm.maintenancematerial.controller.MaintenanceMaterial"
+    xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:t="sap.ui.table"
+    xmlns:u="sap.ui.unified"
+    xmlns:core="sap.ui.core"
+    xmlns="sap.m"
+    xmlns:f="sap.f"
+    xmlns:fb="sap.ui.comp.filterbar"
+    xmlns:svm="sap.ui.comp.smartvariants">
+    <App>
+        <pages>
+            <Page title="{i18n>title}">
+                <content>
+                    <fb:FilterBar search="onSearch" reset="onReset">
+                        <fb:filterItems>
+                            <!-- 첫 번째 필터: 자재 유형 -->
+                            <fb:FilterItem name="MtartFilter" label="{i18n>materialType}">
+                                <fb:control>
+                                  <Input id="mtartInput" showValueHelp="true" valueHelpRequest="onMtartValueHelp" />
+                                    <!-- <Select id="mtart" items="{ path: 'MaterialMasterSet>/Mtart', sorter: { path: 'Mtart' } }">
+                                        <core:Item key="{/MaterialMasterSet>Mtart}" text="{/MaterialMasterSet>Mtart}"/>
+                                    </Select> -->
+                                </fb:control>
+                            </fb:FilterItem>
+
+                            <!-- 두 번째 필터: 거래처 코드 -->
+                            <fb:FilterItem name="BpcodeFilter" label="{i18n>businessPartner}">
+                                <fb:control>
+                                  <Input id="bpcodeInput" showValueHelp="true" valueHelpRequest="onBpcodeValueHelp" />
+                                    <!-- <Select id="bpcode" items="{ path: 'MaterialMasterSet>/Bpcode', sorter: { path: 'Bpcode' } }">
+                                        <core:Item key="{/MaterialMasterSet>Bpcode}" text="{/MaterialMasterSet>Bpcode}"/>
+                                    </Select> -->
+                                </fb:control>
+                            </fb:FilterItem>
+                        </fb:filterItems>
+                    </fb:FilterBar>
+
+                    <t:Table rows="{/MaterialMasterSet}"  
+                            selectionMode="Single"      
+                            paste="onPaste"
+                            id="table"
+                            ariaLabelledBy="title"> 
+                        <t:extension>
+                            <OverflowToolbar style="Clear">
+                                <Title id="title" text="자재마스터"/>
+                            </OverflowToolbar>
+                        </t:extension>
+
+                        <!-- 테이블 열 정의 -->
+                        <t:Column width="6rem" hAlign="Center">
+                            <Label text="자재코드" />
+                            <t:template>
+                                <Text text="{Matnr}" wrapping="false" />
+                            </t:template>
+                        </t:Column>
+                        <t:Column width="6rem" hAlign="Center">
+                            <Label text="거래처코드" />
+                            <t:template>
+                                <Text text="{Bpcode}" wrapping="false" />
+                            </t:template>
+                        </t:Column>
+                        <t:Column width="6rem" hAlign="Center">
+                            <Label text="자재유형" />
+                            <t:template>
+                                <Text text="{Mtart}" wrapping="false" />
+                            </t:template>
+                        </t:Column>
+                        <t:Column width="23rem">
+                            <Label text="자재명" />
+                            <t:template>
+                                <Text text="{Maktx}" wrapping="false" />
+                            </t:template>
+                        </t:Column>
+                        <t:Column width="5rem" hAlign="Center">
+                            <Label text="무게" />
+                            <t:template>
+                                <Text text="{Weight}" wrapping="false" />
+                            </t:template>
+                        </t:Column>
+                        <t:Column width="3rem" hAlign="Center">
+                            <Label text="단위" />
+                            <t:template>
+                                <Text text="{Gewei}" wrapping="false" />
+                            </t:template>
+                        </t:Column>
+                        <t:Column width="5rem" hAlign="Center">
+                            <Label text="금액" />
+                            <t:template>
+                                <Text text="{Netwr}" wrapping="false" />
+                            </t:template>
+                        </t:Column>
+                        <t:Column width="3rem" hAlign="Center">
+                            <Label text="통화" />
+                            <t:template>
+                                <Text text="{Waers}" wrapping="false" />
+                            </t:template>
+                        </t:Column>
+                        <t:Column width="7rem" hAlign="Center">
+                            <Label text="구매리드타임" />
+                            <t:template>
+                                <Text text="{Matlt}" wrapping="false" />
+                            </t:template>
+                        </t:Column>
+                        <t:Column width="7rem" hAlign="Center">
+                            <Label text="생산리드타임" />
+                            <t:template>
+                                <Text text="{Matmlt}" wrapping="false" />
+                            </t:template>
+                        </t:Column>
+                    </t:Table>
+                </content>
+            </Page>
+        </pages>
+    </App>
+</mvc:View>
