@@ -8,84 +8,84 @@
 				paste="onPaste" ariaLabelledBy="title">
             <t:columns >
 
-                <t:Column >
-                    <Label text="거래처코드" class="bold" />
+                <t:Column width="6rem" hAlign="Center">
+                    <Label text="거래처코드" class="bold"  />
                     <t:template>
                         <Text text="{orderitem>bpcode}" wrapping="false" />
                     </t:template>
                 </t:Column>
 
-                <t:Column >
+                <t:Column width="8rem" hAlign="Center">
                     <Label text="거래처명" class="bold" />
                     <t:template>
                         <Text text="{orderitem>cname}" wrapping="false" />
                     </t:template>
                 </t:Column>
 
-                <t:Column >
+                <t:Column width="8rem" hAlign="Center">
                     <Label text="구매오더번호" class="bold" />
                     <t:template>
                         <Text text="{orderitem>aufnr}" wrapping="false" />
                     </t:template>
                 </t:Column>
 
-                <t:Column >
+                <t:Column width="8rem" hAlign="Center">
                     <Label text="구매요청번호" class="bold" />
                     <t:template>
                         <Text text="{orderitem>banfn}" wrapping="false" />
                     </t:template>
                 </t:Column>
 
-                <t:Column >
+                <t:Column width="8rem" hAlign="Center">
                     <Label text="생산계획번호" class="bold" />
                     <t:template>
                         <Text text="{orderitem>plordco}" wrapping="false" />
                     </t:template>
                 </t:Column>
 
-                <t:Column >
+                <t:Column width="6rem" hAlign="Center">
                     <Label text="자재코드" class="bold" />
                     <t:template>
                         <Text text="{orderitem>matnr}" wrapping="false" />
                     </t:template>
                 </t:Column>
 
-                 <t:Column width="15rem">
+                 <t:Column width="15rem" hAlign="Center">
                     <Label text="자재명" class="bold" />
                     <t:template>
                         <Text text="{orderitem>maktx}" wrapping="false" />
                     </t:template>
                 </t:Column>
 
-                <t:Column >
+                <t:Column width="5rem" hAlign="Center">
                     <Label text="수량" class="bold" />
                     <t:template>
                         <Text text="{orderitem>menge}" wrapping="false" />
                     </t:template>
                 </t:Column>
 
-                <t:Column >
+                <t:Column width="4rem" hAlign="Center" >
                     <Label text="단위" class="bold" />
                     <t:template>
                         <Text text="{orderitem>meins}" wrapping="false" />
                     </t:template>
                 </t:Column>
 
-                <t:Column >
+                <t:Column width="4rem" hAlign="Center">
                     <Label text="단가" class="bold" />
                     <t:template>
                         <Text text="{orderitem>netwr}" wrapping="false" />
                     </t:template>
                 </t:Column>
 
-                <t:Column >
+                <t:Column width="4rem" hAlign="Center">
                     <Label text="통화" class="bold" />
                     <t:template>
                         <Text text="{orderitem>waers}" wrapping="false" />
                     </t:template>
                 </t:Column>
 
-                <t:Column width="10rem">
+                <t:Column width="10rem" hAlign="Center">
                     <Label text="입고예정일" class="bold" />
                     <t:template>
                         <Text text="{                                         
@@ -101,7 +101,7 @@
                     </t:template>
                 </t:Column>
 
-                <t:Column width="10rem">
+                <t:Column width="10rem" hAlign="Center">
                     <Label text="입고완료일" class="bold" />
                     <t:template>
                         <Text text="{                                         

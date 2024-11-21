@@ -12,25 +12,25 @@
             <items>
                 <IconTabFilter
                     showAll="true"
-                    count="{statusCounts>/PuchaseOrder/Total}"
+                    count="{statusCounts>/PurchaseOrder/ALL}"
                     text="Products"
                     key="All" />
                 <IconTabSeparator />
                 <IconTabFilter
                     icon="sap-icon://begin"
                     iconColor="Positive"
-                    count="{statusCounts>/PuchaseOrder/A}"
+                    count="{statusCounts>/PurchaseOrder/A}"
                     text="입고완료"
                     key="A" />
                 <IconTabFilter
                     icon="sap-icon://inventory"
                     iconColor="Critical"
-                    count="{statusCounts>/PuchaseOrder/B}"
+                    count="{statusCounts>/PurchaseOrder/B}"
                     text="입고예정"
                     key="B" />
             </items>
             <content>
-                <t:Table rows ="{/PuchaseOrder}" selectionMode = "None" id="PurchaseOrder">
+                <t:Table rows ="{/PurchaseOrder}" selectionMode = "None" id="PurchaseOrder">
                     <t:extension>
                             <OverflowToolbar style="Clear">
                                 <Title id="title" text="Purchase Order Inquiry"/>
@@ -50,21 +50,21 @@
                                 </t:template>
                             </t:Column>
 
-                            <t:Column >
+                            <t:Column hAlign="Center">
                                 <Label text="구매요청번호" />
                                 <t:template>
                                     <Text text="{banfn}" wrapping="false" />
                                 </t:template>
                             </t:Column>
 
-                            <t:Column >
+                            <t:Column hAlign="Center">
                                 <Label text="생산계획번호" />
                                 <t:template>
                                     <Text text="{plordco}" wrapping="false" />
                                 </t:template>
                             </t:Column>
 
-                            <t:Column >
+                            <t:Column hAlign="Center">
                                 <Label text="구매요청일자" />
                                 <t:template>
                                     <Text text = "{ 
@@ -79,23 +79,7 @@
                                 </t:template>
                             </t:Column>
 
-                            <!-- <t:Column >
-                                <Label text="입고예정일" />
-                                <t:template>
-                                    <Text text="{                                         
-                                        path: 'eindt_string',
-                                        type: 'sap.ui.model.type.Date',
-                                        formatOptions: {
-                                        style: 'long',
-                                        source: {
-                                        pattern: 'yyyy/MM/dd'
-                                                }
-                                            }
-                                        }" />
-                                </t:template>
-                            </t:Column> -->
-
-                            <t:Column >
+                            <t:Column hAlign="Center">
                                 <Label text="입고완료일" />
                                 <t:template>
                                     <Text text="{                                         
@@ -111,7 +95,7 @@
                                 </t:template>
                             </t:Column>
 
-                            <t:Column >
+                            <t:Column hAlign="Center">
                                 <Label text="입고상태" />
                                 <t:template>
                                     <Text text="{stostat_txt}" wrapping="false" />
