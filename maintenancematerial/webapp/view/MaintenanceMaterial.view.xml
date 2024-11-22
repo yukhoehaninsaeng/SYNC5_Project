@@ -17,19 +17,13 @@
                             <fb:FilterItem name="MtartFilter" label="{i18n>materialType}">
                                 <fb:control>
                                   <Input id="mtartInput" showValueHelp="true" valueHelpRequest="onMtartValueHelp" />
-                                    <!-- <Select id="mtart" items="{ path: 'MaterialMasterSet>/Mtart', sorter: { path: 'Mtart' } }">
-                                        <core:Item key="{/MaterialMasterSet>Mtart}" text="{/MaterialMasterSet>Mtart}"/>
-                                    </Select> -->
                                 </fb:control>
                             </fb:FilterItem>
 
                             <!-- 두 번째 필터: 거래처 코드 -->
                             <fb:FilterItem name="BpcodeFilter" label="{i18n>businessPartner}">
                                 <fb:control>
-                                  <Input id="bpcodeInput" showValueHelp="true" valueHelpRequest="onBpcodeValueHelp" />
-                                    <!-- <Select id="bpcode" items="{ path: 'MaterialMasterSet>/Bpcode', sorter: { path: 'Bpcode' } }">
-                                        <core:Item key="{/MaterialMasterSet>Bpcode}" text="{/MaterialMasterSet>Bpcode}"/>
-                                    </Select> -->
+                                  <Input id="bpcodeInput" showValueHelp="true" valueHelpRequest="onBpcodeValueHelp" /> 
                                 </fb:control>
                             </fb:FilterItem>
                         </fb:filterItems>
