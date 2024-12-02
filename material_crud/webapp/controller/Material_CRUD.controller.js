@@ -6,15 +6,14 @@ sap.ui.define([
 	'sap/ui/model/FilterOperator',
 	'sap/ui/comp/smartvariants/PersonalizableInfo',
 	"sap/ui/comp/valuehelpdialog/ValueHelpDialog",
-	 "../model/formatter",
      "sap/m/MessageToast",
      "sap/m/MessageBox"
 ],
-function (Controller, JSONModel, Label, Filter, FilterOperator, PersonalizableInfo, ValueHelpDialog, formatter, MessageToast, MessageBox) {
+function (Controller, JSONModel, Label, Filter, FilterOperator, PersonalizableInfo, ValueHelpDialog, MessageToast, MessageBox) {
     "use strict";
 	
-    return Controller.extend("cl3.syncyoung.mm.mtm.maintenancematerial.controller.MaintenanceMaterial", {
-		formatObj: formatter,
+    return Controller.extend("cl3.syncyoung.mm.materialcrud.materialcrud.controller.Material_CRUD", {
+		// formatObj: formatter,
 		onInit: function () {
 			const bpcodeJson = new JSONModel ({
 				"Bpcode" : [
@@ -192,7 +191,7 @@ function (Controller, JSONModel, Label, Filter, FilterOperator, PersonalizableIn
 
            
             if (!this.oItemDialog) {
-                this.oItemDialog = sap.ui.xmlfragment("cl3.syncyoung.mm.mtm.maintenancematerial.view.DialogC", this); 
+                this.oItemDialog = sap.ui.xmlfragment("cl3.syncyoung.mm.materialcrud.materialcrud.view.DialogC", this); 
                 this.getView().addDependent(this.oItemDialog);
             }
 
@@ -328,7 +327,7 @@ function (Controller, JSONModel, Label, Filter, FilterOperator, PersonalizableIn
             console.log(oData);
 
             if (!this.oItemDialog) {
-                this.oItemDialog = sap.ui.xmlfragment("cl3.syncyoung.mm.mtm.maintenancematerial.view.DialogC", this);
+                this.oItemDialog = sap.ui.xmlfragment("cl3.syncyoung.mm.materialcrud.materialcrud.view.DialogC", this);
                 this.getView().addDependent(this.oItemDialog);
             }
         

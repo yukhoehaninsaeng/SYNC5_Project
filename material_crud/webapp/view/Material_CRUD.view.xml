@@ -1,4 +1,5 @@
-<mvc:View controllerName="cl3.syncyoung.mm.mtm.maintenancematerial.controller.MaintenanceMaterial"
+
+<mvc:View controllerName="cl3.syncyoung.mm.materialcrud.materialcrud.controller.Material_CRUD"
     xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
     xmlns:t="sap.ui.table"
     xmlns:u="sap.ui.unified"
