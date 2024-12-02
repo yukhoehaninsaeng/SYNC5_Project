@@ -42,7 +42,6 @@ function (Controller, JSONModel, Label, Filter, FilterOperator, PersonalizableIn
             });
             this.getView().setModel(oModel);
 
-            console.log("drs");
         },
 
 		onSearch: function (oEvent) {
@@ -192,6 +191,7 @@ function (Controller, JSONModel, Label, Filter, FilterOperator, PersonalizableIn
            
             if (!this.oItemDialog) {
                 this.oItemDialog = sap.ui.xmlfragment("cl3.syncyoung.mm.materialcrud.materialcrud.view.DialogC", this); 
+         
                 this.getView().addDependent(this.oItemDialog);
             }
 
@@ -367,7 +367,98 @@ function (Controller, JSONModel, Label, Filter, FilterOperator, PersonalizableIn
                 }
             });
             this.oItemDialog.close();
-        }
+        },
+
+        onSearch: function() {
+            let oTable   = this.getView().byId("table"),
+                oBinding = oTable.getBinding("rows"),    // rows 정보를 가져옴
+                aFilter  = [],                           // aFilter = arrayFilter  -> 2. 이 배열에 넣는다.
+                oFilter  = null;                         // oFilter = objectFilter -> 1. oFilter를 통해 WA 형태로 검색 조건을 Making해서
+
+
+            var vMtart = this.getView().byId("mtartInput").getValue(),
+                vBpcode   = this.getView().byId("bpcodeInput").getValue();
+
+            if (!vMtart && !vBpcode) {
+                MessageToast.show("자재유형 혹은 거래처코드를 입력하세요.");
+                exit;
+            };
+            
+            /** 검색조건 Making */
+            if (vMtart != '') {
+
+                // 생성자를 이용해서 검색조건을 Making 한다. (중괄호이기 때문에 Work Area로 Making 한다.)
+                oFilter = new Filter({
+                    path: "Mtart",
+                    operator: FilterOperator.EQ,
+                    value1: vMtart
+                });
+
+                aFilter.push(oFilter); // aFilter에 담아준다.
+                oFilter = null;        // oFilter 초기화
+
+            };
+
+            if (vBpcode != '') {
+
+                oFilter = new Filter({
+                    path: "Bpcode",
+                    operator: FilterOperator.EQ,
+                    value1: vBpcode
+                });
+
+                aFilter.push(oFilter);
+                oFilter = null;
+                
+            };
+
+            oBinding.filter(aFilter); // Making한 검색 조건들을 Entityset에 날려준다.
+        },
+
+        onReset: function() {
+
+            let oTable   = this.getView().byId("table"),
+                oBinding = oTable.getBinding("rows"),    // rows 정보를 가져옴
+                aFilter  = [],                           // aFilter = arrayFilter  -> 2. 이 배열에 넣는다.
+                oFilter  = null;                         // oFilter = objectFilter -> 1. oFilter를 통해 WA 형태로 검색 조건을 Making해서
+
+            this.byId("mtartInput").setValue("");
+            this.byId("bpcodeInput").setValue("");
+
+            var vMtart    = this.getView().byId("mtartInput").getValue(),
+                vBpcode   = this.getView().byId("bpcodeInput").getValue();
+
+            /** 검색조건 Making */
+            if (vMtart != '') {
+
+                // 생성자를 이용해서 검색조건을 Making 한다. (중괄호이기 때문에 Work Area로 Making 한다.)
+                oFilter = new Filter({
+                    path: "Mtart",
+                    operator: FilterOperator.EQ,
+                    value1: vMtart
+                });
+
+                aFilter.push(oFilter); // aFilter에 담아준다.
+                oFilter = null;        // oFilter 초기화
+
+            };
+
+            if (vBpcode != '') {
+
+                oFilter = new Filter({
+                    path: "Bpcode",
+                    operator: FilterOperator.EQ,
+                    value1: vBpcode
+                });
+
+                aFilter.push(oFilter);
+                oFilter = null;
+                
+            };
+
+            oBinding.filter(aFilter); // Making한 검색 조건들을 Entityset에 날려준다.
+
+        },
 
 
 		 

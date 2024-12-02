@@ -43,7 +43,6 @@ function (Controller, JSONModel, Label, Filter, FilterOperator, PersonalizableIn
             });
             this.getView().setModel(oModel);
 
-            console.log("drs");
         },
 
 		onSearch: function (oEvent) {

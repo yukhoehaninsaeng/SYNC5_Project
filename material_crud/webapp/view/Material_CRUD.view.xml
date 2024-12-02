@@ -24,11 +24,16 @@
                             </HBox>
                             <HBox >
                                 <Text text="자재유형　　 : 　" class="customText"/>
-                                <Input id="bpcodeInput" showValueHelp="true" valueHelpRequest="onBpcodeValueHelp" /> 
+                                <Input id="bpcodeInput" showValueHelp="true" valueHelpRequest="onBpcodeValueHelp" />
+                                <ToolbarSpacer width="4rem"/>
+                                <Button text="조회" icon="sap-icon://search" type="Ghost" press="onSearch"/>
+                                <Text text="　" />
+                                <Button text="초기화" icon="sap-icon://clear-all" type="Ghost" press="onReset"/>
                             </HBox>
                         </VBox>
 
                     </Panel>
+
 
                     <Panel class="marginPanel" width="auto">
 
@@ -37,7 +42,7 @@
                                 <Label text="자재마스터"/>
                                 <ToolbarSpacer />
                                 <Button text="자재생성"   icon="sap-icon://create"        press="onCreate" type="Success"/>
-                                <Button text="자재변경"   icon="sap-icon://write-new"     press=""   type="Emphasized"/>
+                                <Button text="자재변경"   icon="sap-icon://write-new"     press="onDisplay"   type="Emphasized"/>
                                 <Button text="자재삭제"   icon="sap-icon://delete"        press="onDelete" type="Negative"/>    
                             </Toolbar>
                         </headerToolbar>

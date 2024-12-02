@@ -1,0 +1,109 @@
+<mvc:View controllerName="cl3syncyoungpi.purchaseorderinquiry01.controller.purchaseorderinquiry_v"
+ xmlns:mvc="sap.ui.core.mvc" displayBlock="true"
+    xmlns:t="sap.ui.table"
+    xmlns:u="sap.ui.unified"
+	xmlns:c="sap.ui.core"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <IconTabBar
+		id="idIconTabBar"
+		select=".onFilterSelect"
+		class="sapUiResponsiveContentPadding">
+            <items>
+                <IconTabFilter
+                    showAll="true"
+                    count="{statusCounts>/PurchaseOrder/ALL}"
+                    text="구매리스트"
+                    key="All" />
+                <IconTabSeparator />
+                <IconTabFilter
+                    icon="sap-icon://arrow-down"
+                    iconColor="Positive"
+                    count="{statusCounts>/PurchaseOrder/A}"
+                    text="입고완료"
+                    key="A" />
+                <IconTabFilter
+                    icon="sap-icon://inventory"
+                    iconColor="Critical"
+                    count="{statusCounts>/PurchaseOrder/B}"
+                    text="입고예정"
+                    key="B" />
+            </items>
+            <content>
+                <t:Table rows ="{/PurchaseOrder}" selectionMode = "None" id="PurchaseOrder">
+                    <t:extension>
+                            <OverflowToolbar style="Clear">
+                                <Title id="title" text="Purchase Order Inquiry"/>
+                            </OverflowToolbar> 
+                        </t:extension>
+
+                    <t:columns>
+                            <t:Column hAlign="Center">
+                                <Label text="구매오더번호" />
+                                <t:template>
+                                <Button
+                                        id="aufnr"
+                                        text="{aufnr}"
+                                        press="onOpenDialog"
+                                        class="sapUiSmallMarginBottom"
+                                        ariaHasPopup="Dialog" />
+                                </t:template>
+                            </t:Column>
+
+                            <t:Column hAlign="Center">
+                                <Label text="구매요청번호" />
+                                <t:template>
+                                    <Text text="{banfn}" wrapping="false" />
+                                </t:template>
+                            </t:Column>
+
+                            <t:Column hAlign="Center">
+                                <Label text="생산계획번호" />
+                                <t:template>
+                                    <Text text="{plordco}" wrapping="false" />
+                                </t:template>
+                            </t:Column>
+
+                            <t:Column hAlign="Center">
+                                <Label text="구매요청일자" />
+                                <t:template>
+                                    <Text text = "{ 
+                                            path : 'bedat_string',
+                                            type : 'sap.ui.model.type.Date',
+                                            formatOptions: {
+                                                style: 'long',
+                                                source: {
+                                                    pattern: 'yyyy-MM-dd HH:mm:ss'
+                                                    }
+                                                } }" />
+                                </t:template>
+                            </t:Column>
+
+                            <t:Column hAlign="Center">
+                                <Label text="입고완료일" />
+                                <t:template>
+                                    <Text text="{                                         
+                                        path: 'lfdat_string',
+                                        type: 'sap.ui.model.type.Date',
+                                        formatOptions: {
+                                        style: 'long',
+                                        source: {
+                                        pattern: 'yyyy/MM/dd'
+                                                }
+                                            }
+                                        }" />
+                                </t:template>
+                            </t:Column>
+
+                            <t:Column hAlign="Center">
+                                <Label text="입고상태" />
+                                <t:template>
+                                    <Text text="{stostat_txt}" wrapping="false" />
+                                </t:template>
+                            </t:Column> 
+                        </t:columns> 
+                </t:Table>
+            </content>
+        </IconTabBar>
+    </Page>
+</mvc:View>

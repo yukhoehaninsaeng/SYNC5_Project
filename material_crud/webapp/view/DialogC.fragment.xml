@@ -4,52 +4,48 @@
 	xmlns:core="sap.ui.core"
     xmlns:l="sap.ui.layout">
     <Dialog id="itemDialog" title="ITEM LIST">
-
-        <VBox>
+        <VBox class="customVBox">
             <HBox>
                 <Label text="자재명　　　　:　" />
-                <Input id="Maktx" placeholder="Material Name" width="10rem" value="{dialog>/Maktx}"/>
+                <Input id="Maktx" placeholder="Material Name" width="13rem" value="{dialog>/Maktx}"/>
             </HBox>
             <HBox>
                 <Label text="자재유형　　　:　" />
-                <Input id="Mtart" placeholder="Mtart" width="10rem" value="{dialog>/Mtart}"/>    
+                <Input id="Mtart" placeholder="Mtart" width="13rem" value="{dialog>/Mtart}"/>    
             </HBox>
             <HBox>
                 <Label text="거래처코드　　:　" />
-                <Input id="Bpcode" placeholder="Bpcode" width="10rem" value="{dialog>/Bpcode}"/>
+                <Input id="Bpcode" placeholder="Bpcode" width="13rem" value="{dialog>/Bpcode}"/>
             </HBox>
             <HBox>
                 <Label text="무게　　　　　:　" />
-                <Input id="Weight" placeholder="Number" width="10rem" value="{dialog>/Weight}"/>
+                <Input id="Weight" placeholder="Number" width="13rem" value="{dialog>/Weight}"/>
             </HBox> 
             <HBox>
                 <Label text="단위　　　　　:　" />
-                <Input id="Gewei" placeholder="Ea, ML, L, G, KG" width="10rem" value="{dialog>/Gewei}"/>
+                <Input id="Gewei" placeholder="Ea, ML, L, G, KG" width="13rem" value="{dialog>/Gewei}"/>
             </HBox>
             <HBox>
                 <Label text="단가　　　　　:　" />
-                <Input id="Netwr" placeholder="Price" width="10rem" value="{dialog>/Netwr}"/>
+                <Input id="Netwr" placeholder="Price" width="13rem" value="{dialog>/Netwr}"/>
             </HBox>
             <HBox>
                 <Label text="통화　　　　　:　" />
-                <Input id="Waers" placeholder="Currency" width="10rem" value="{dialog>/Waers}"/>
+                <Input id="Waers" placeholder="Currency" width="13rem" value="{dialog>/Waers}"/>
             </HBox>
             <HBox>
                 <Label text="생산리드타임　:　" />
-                <Input id="Matmlt" placeholder="DD" width="10rem" value="{dialog>/Matmlt}"/>
+                <Input id="Matmlt" placeholder="DD" width="13rem" value="{dialog>/Matmlt}"/>
             </HBox>
             <HBox>
                 <Label text="구매리드타임　:　" />
-                <Input id="Matlt" placeholder="DD" width="10rem" value="{dialog>/Matlt}"/>			    
+                <Input id="Matlt" placeholder="DD" width="13rem" value="{dialog>/Matlt}"/>			    
             </HBox>
         </VBox>
-        <footer>
-            <Toolbar>
-                <ToolbarSpacer /> 
-                <Button text="자재생성" press="onConfirmDialog" />
-                <Button text="자재수정" press="onUpdate"/>
-                <Button text="닫기" press="onCloseDialog" />
-            </Toolbar>
-        </footer>
+        <buttons>
+            <Button text="자재생성" press="onConfirmDialog" type="Ghost"/>
+            <Button text="자재수정" press="onUpdate" type="Ghost"/> 
+            <Button text="닫기" press="onCloseDialog" type="Ghost"/>
+        </buttons>
     </Dialog>
 </core:FragmentDefinition>
