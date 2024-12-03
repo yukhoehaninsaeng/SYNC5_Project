@@ -32,13 +32,15 @@
             <content>
                 <t:Table rows ="{/PurchaseOrder}" selectionMode = "None" id="PurchaseOrder">
                     <t:extension>
+                        <HBox justifyContent="Center" class="sapUiSmallMarginBottom">
                             <OverflowToolbar style="Clear">
                                 <Title id="title" text="Purchase Order Inquiry"/>
                             </OverflowToolbar> 
-                        </t:extension>
+                        </HBox>
+                    </t:extension>
 
                     <t:columns>
-                            <t:Column hAlign="Center">
+                            <t:Column hAlign="Center" >
                                 <Label text="구매오더번호" />
                                 <t:template>
                                 <Button

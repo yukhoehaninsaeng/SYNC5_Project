@@ -59,7 +59,7 @@
                                         <Text text="{Matnr}" wrapping="false" />
                                     </t:template>
                                 </t:Column>
-                                <t:Column width="10%" hAlign="Center">
+                                <t:Column width="10%" hAlign="Center" >
                                     <Label text="거래처코드" />
                                     <t:template>
                                         <Text text="{Bpcode}" wrapping="false" />
