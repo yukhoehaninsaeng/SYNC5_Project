@@ -19,11 +19,11 @@
 
                         <VBox >
                             <HBox >
-                                <Text text="거래처코드　 : 　" class="customText"/>
+                                <Text text="자재유형　　 : 　" class="customText"/>
                                 <Input id="mtartInput" showValueHelp="true" valueHelpRequest="onMtartValueHelp" />
                             </HBox>
                             <HBox >
-                                <Text text="자재유형　　 : 　" class="customText"/>
+                                <Text text="거래처코드　 : 　" class="customText"/>
                                 <Input id="bpcodeInput" showValueHelp="true" valueHelpRequest="onBpcodeValueHelp" />
                                 <ToolbarSpacer width="4rem"/>
                                 <Button text="조회" icon="sap-icon://search" type="Ghost" press="onSearch"/>

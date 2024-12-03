@@ -4,7 +4,7 @@
     xmlns:u="sap.ui.unified"
 	xmlns:c="sap.ui.core"
     xmlns="sap.m">
-    <Page id="page" title="{i18n>title}">
+    <Page id="page" title="{i18n>title}" enableScrolling="false">
         <IconTabBar
 		id="idIconTabBar"
 		select=".onFilterSelect"
@@ -30,13 +30,30 @@
                     key="B" />
             </items>
             <content>
-                <t:Table rows ="{/PurchaseOrder}" selectionMode = "None" id="PurchaseOrder">
+                <VBox class="tableContainer">
+                <t:Table rows ="{/PurchaseOrder}" 
+                         selectionMode = "None" 
+                         id="PurchaseOrder" 
+                         visibleRowCountMode="Auto"
+                         minAutoRowCount="12">
                     <t:extension>
-                        <HBox justifyContent="Center" class="sapUiSmallMarginBottom">
-                            <OverflowToolbar style="Clear">
-                                <Title id="title" text="Purchase Order Inquiry"/>
-                            </OverflowToolbar> 
-                        </HBox>
+                        <Toolbar class="customToolbar">
+                            <Label text="구매오더" design="Bold"/>
+                            <ToolbarSpacer/>
+                            <SearchField ariaLabelledBy="text1" 
+                                        id="searchPO" 
+                                        liveChange="onFilter" 
+                                        placeholder="구매오더번호를 입력하세요."
+                                        visible="{viewModel>/isVisible}">
+                                <layoutData>
+                                    <OverflowToolbarLayoutData maxWidth="280px" shrinkable="true" priority="NeverOverflow"/>
+                                </layoutData>
+                            </SearchField>
+                            <Button text="Reset" 
+                                    type="Ghost" 
+                                    press="onReset"
+                                    visible="{viewModel>/isVisible}"/>
+                        </Toolbar>
                     </t:extension>
 
                     <t:columns>
@@ -47,7 +64,7 @@
                                         id="aufnr"
                                         text="{aufnr}"
                                         press="onOpenDialog"
-                                        class="sapUiSmallMarginBottom"
+                                        class="sapUiSmallMarginCenter"
                                         ariaHasPopup="Dialog" />
                                 </t:template>
                             </t:Column>
@@ -105,7 +122,12 @@
                             </t:Column> 
                         </t:columns> 
                 </t:Table>
+                </VBox>
             </content>
         </IconTabBar>
+        <footer>
+            <OverflowToolbar>
+            </OverflowToolbar>
+        </footer>
     </Page>
 </mvc:View>

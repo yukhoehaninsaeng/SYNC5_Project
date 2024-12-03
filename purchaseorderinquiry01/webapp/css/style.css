@@ -1,1 +1,14 @@
 /* Enter your custom styles here */
+
+.customToolbar {
+    background-color: #D8D8D8 !important;
+}
+
+.tableContainer {
+    flex-grow: 1; /* 가용 공간을 모두 차지 */
+    display: flex;
+    flex-direction: column;
+    overflow: auto;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
