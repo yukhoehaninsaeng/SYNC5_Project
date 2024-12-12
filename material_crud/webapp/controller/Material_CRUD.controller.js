@@ -86,7 +86,7 @@ function (Controller, JSONModel, Label, Filter, FilterOperator, PersonalizableIn
 		},
 
 		
-
+        
 		onMtartValueHelp: function() {
 			var oInput = this.byId("mtartInput"); // 입력 필드
             var oValueHelpDialog = new ValueHelpDialog({
@@ -214,6 +214,7 @@ function (Controller, JSONModel, Label, Filter, FilterOperator, PersonalizableIn
             return this.currentButton;
         },
 
+        //유효성검사 로직 
         onConfirmDialog: function () {
             let oMtart = sap.ui.getCore().byId("Mtart").getValue(); // 자재유형 가져오기
             
